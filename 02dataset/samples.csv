@@ -1,0 +1,23 @@
+orig.ident,Sample_ID,Cell Population,Tissue Type,COVID-19
+Sample_1,Donor1_1,Myeloid,Parenchyma,False
+Sample_2,Donor1_2,Epithelial,Parenchyma,False
+Sample_3,Donor1_3,Stromal,Parenchyma,False
+Sample_4,Donor1_4,Myeloid,Bronchus,False
+Sample_5,Donor1_5,Epithelial,Bronchus,False
+Sample_6,Donor1_6,Stromal,Bronchus,False
+Sample_7,PB1_1,Epithelial,Parenchyma,True
+Sample_8,PB1_2,Stromal,Parenchyma,True
+Sample_9,PB1_3,Myeloid,Parenchyma,True
+Sample_10,PB1_4,Stromal_Myeloid,Parenchyma,True
+Sample_11,TX_Donor_1,Epithelial,Parenchyma,False
+Sample_12,TX_Donor_2,Myeloid,Parenchyma,False
+Sample_13,TX_Donor_3,Stromal,Parenchyma,False
+Sample_14,TX_Donor_4,CD31,Parenchyma,False
+Sample_15,TX_Recipient_1,Epithelial,Parenchyma,True
+Sample_16,TX_Recipient_2,Myeloid,Parenchyma,True
+Sample_17,TX_Recipient_3,Stromal,Parenchyma,True
+Sample_18,TX_Recipient_4,CD31,Parenchyma,True
+Sample_19,PB2_1,Myeloid,Parenchyma,True
+Sample_20,PB2_2,CD31,Parenchyma,True
+Sample_21,PB2_3,Stromal,Parenchyma,True
+Sample_22,PB2_4,Epithelial,Parenchyma,True

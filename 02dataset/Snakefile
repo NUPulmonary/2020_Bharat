@@ -1,0 +1,67 @@
+import os
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+import integrate
+
+
+SAMPLES = pd.read_csv("samples.csv")
+SAMPLES_DIR = "../data/01samples"
+PREFILTERED = "../01prefiltered"
+DATA_DIR = "../data/02dataset"
+
+SAMPLE_IDS = SAMPLES.Sample_ID
+
+
+def integration_input(wildcards):
+    """
+    If the sample has corresponding cells file in 01prefiltered dir,
+    then return a list of sample h5 location and cells file location
+
+    Otherwise, return sample h5 location
+    """
+    sample = None
+    for f in os.listdir(SAMPLES_DIR):
+        if f"{wildcards.sample}_filtered" in f:
+            sample = os.path.join(SAMPLES_DIR, f)
+            break
+    assert sample is not None
+    result = [sample]
+    for f in os.listdir(PREFILTERED):
+        if wildcards.sample in f:
+            result.append(os.path.join(PREFILTERED, f))
+            break
+    return result
+
+
+rule all:
+    input:
+        f"{DATA_DIR}/integrated.h5ad",
+
+
+rule bbknn:
+    input: "{dir}/h5ad/" + SAMPLE_IDS + ".h5ad"
+    output:
+        "{dir}/integrated.h5ad",
+        directory("{dir}/integrated-data")
+    params:
+        slurm__partition="genomics-himem",
+        slurm__hours=8,
+        slurm__cores=12,
+        slurm__mem=200,
+        noribo=True
+    run:
+        integrate.integrate(input, output[0], output[1], params.noribo)
+
+
+rule integration_input:
+    input: integration_input
+    output: "{dir}/h5ad/{sample}.h5ad"
+    params:
+        slurm__partition="genomics-himem",
+        slurm__hours=1,
+        slurm__cores=4,
+        slurm__mem=16
+    run:
+        integrate.prepare(*input, out_file=output[0], sample=wildcards.sample)
