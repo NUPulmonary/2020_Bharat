@@ -1,7 +1,7 @@
 ## Lung transplantation for pulmonary fibrosis secondary to severe COVID-19
 Bharat et al., 2020
 
-https://doi.org/10.1101/2020.10.26.20218636
+Now published in _Science Translational Medicine_ https://stm.sciencemag.org/content/early/2020/11/25/scitranslmed.abe4282
 
 This repository accompanies Bharat et al., 2020 manuscript with analysis of single-cell data from COVID-19 patients, healthy donors and previously published IPF dataset.\
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4291960.svg)](https://doi.org/10.5281/zenodo.4291960)
